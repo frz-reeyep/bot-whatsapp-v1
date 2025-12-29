@@ -1,9 +1,9 @@
 const bot = require("../bot.js")
+const {inspect} = require("util")
 
 module.exports = {
     response: async ({message}, next) => {
-        console.log(bot)
-        return "Fixing"
+        return inspect(bot)
     },
     options: {
         aliases: ["owner"],
