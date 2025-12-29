@@ -1,4 +1,4 @@
-const {dev, owners} = require("../bot")
+const {dev, owners} = require("../bot.js")
 
 module.exports = {
     response: async ({message}, next) => {
