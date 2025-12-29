@@ -54,4 +54,4 @@ function getJid(id) {
 
 bot.start()
 
-module.exports = {permission, permissionId, owners, dev}
+module.exports = {permission, permissionId, owners: owners, dev: dev}
