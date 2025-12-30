@@ -12,7 +12,7 @@ const TypeData = ["profiles"]
 // StartUp
 
 bot.onReceive(/.+/, ({message}, next) => {
-    console.log(inspect(message))
+    console.log(inspect(message.toBaileys()))
     next()
 })
 
