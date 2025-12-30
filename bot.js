@@ -23,7 +23,7 @@ bot.onReady(async () => {
     }
 
     for(let id of owners) {
-        console.log(permissionId(owner))
+        console.log(permissionId(id))
     }
     
     await bot.sendMessage(owners[0], "Ascy is Ready!")
