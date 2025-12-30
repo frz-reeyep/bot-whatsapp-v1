@@ -6,7 +6,7 @@ module.exports = {
         let data
         if(!fs.existsSync(path)) {
             data = {
-                name: message.toBaileys().key?.senderPn || message.toBaileys().key?.participantPn,
+                name: message.toBaileys().key?.participantAlt || message.toBaileys().key?.remoteJidAlt,
                 age: 0
             }
 
