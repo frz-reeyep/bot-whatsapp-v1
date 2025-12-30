@@ -64,6 +64,6 @@ function getJid(id) {
     return id + "@s.whatsapp.net"
 }
 
-bot.start()
+bot.start({suppressBaileysLogs: false})
 
 module.exports = {permission, permissionId, bot, owners}
