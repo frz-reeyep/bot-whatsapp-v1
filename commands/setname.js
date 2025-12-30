@@ -15,11 +15,15 @@ module.exports = {
         } else {
             data = JSON.parse(await fs.readFileSync(path, "utf8"))
         }
-        const msg = await bot.waitForMessage((m) => m.sender.id === message.sender.id)
+        const msg = await bot.waitForMessage((m) => m.sender.id === message.sender.id).text
+        if(!msg) return "Time to change your name is over"
+        data.name = msg
+        await fs.writeFileSync(path, JSON.stringify(data, null, 2))
+        return "Successfully set your name to "+msg
     },
     options: {
-        description: "See your profile",
-        aliases: ["profil", "pf", "me"],
+        description: "set your name",
+        aliases: ["name"],
         sectionName: "General Menu"
     }
 }
