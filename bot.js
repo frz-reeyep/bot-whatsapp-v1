@@ -1,9 +1,12 @@
 const bot = require("wachan")
 const {inspect} = require("util")
 const commands = require("wachan/commands")
+const fs = require("fs")
 require("dotenv").config()
 
 const owners = process.env.owner_id.split(",").map(x => getJid(x))
+const dataPath = "./data/"
+const TypeData = ["profiles"]
 
 // Message
 bot.onReceive(/^>> (.+)$/si, async (ctx, next) => {
@@ -30,6 +33,16 @@ commands.fromFolder("commands")
 // Non message
 
 bot.onReady(async () => {
+    if(!fs.existsSync(dataPath)) {
+        await fs.mkdirSync(dataPath)
+    }
+    for(let folder of TypeData) {
+        const path = dataPath + folder
+        if(!fs.existsSync(path)) {
+            await fs.mkdirSync(path, {recursive: true})
+        }
+    }
+
     await bot.sendMessage(owners[0], "Ascy is Ready!")
 })
 
