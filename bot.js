@@ -74,6 +74,7 @@ function permission(message) {
     // const id = message.sender.id.endsWith("lid")? message.sender.id : message.sender.lid
 
     const id = message.toBaileys().key.senderPn || message.toBaileys().key.participantPn
+    console.log(id)
     return owners.includes(id)
 }
 
