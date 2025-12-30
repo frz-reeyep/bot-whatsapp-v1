@@ -32,7 +32,7 @@ bot.onReady(async () => {
     }
     
     if(process.argv?.slice(2).split("|")[0] === "restart mode") {
-        await bot.sendMessage(process.argv.slice(2).split("|")[0], "Restarted")
+        await bot.sendMessage(process.argv.slice(2).split("|")[1], "Restarted")
     } else {
         await bot.sendMessage(owners[0], "Ascy is Ready!")
     }
