@@ -11,6 +11,8 @@ const TypeData = ["profiles"]
 
 // StartUp
 
+module.exports = {permission, permissionId, bot, owners}
+
 bot.onReceive(/.+/, ({message}, next) => {
     console.log(inspect(message.toBaileys()))
     next()
@@ -103,5 +105,3 @@ function getJid(id) {
 }
 
 bot.start({suppressBaileysLogs: false})
-
-module.exports = {permission, permissionId, bot, owners}
