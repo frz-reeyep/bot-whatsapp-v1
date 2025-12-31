@@ -19,10 +19,10 @@ module.exports = {
         await message.reply("Send a number (not float) to change name!")
         let msg = await bot.waitForMessage((m) => m.sender.id === message.sender.id && m.type === "text", 60*10*10*10)
         if(!msg) return "Time to change your name is over"
-        else if (!isNaN(msg.text) && !parseInt(msg.text) == msg.text) return "You can't send float number or word"
-        data.age = msg.text
+        else if (!isNaN(msg.text) && !parseFloat(msg.text) == msg.text) return "You can't send float number or word"
+        data.age = parseInt(msg.text)
         await fs.writeFileSync(path, JSON.stringify(data, null, 2))
-        return "Successfully set your age to "+msg
+        return "Successfully set your age to "+data.age
     },
     options: {
         description: "set your age",
