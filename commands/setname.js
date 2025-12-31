@@ -19,6 +19,7 @@ module.exports = {
         await message.reply("Send a text to change name!")
         let msg = await bot.waitForMessage((m) => m.sender.id === message.sender.id && m.type === "text", 60*10*10)
         if(!msg) return "Time to change your name is over"
+        else if (msg.includes("@")) return "You can add @ in your name"
         msg = msg.text
         data.name = msg
         await fs.writeFileSync(path, JSON.stringify(data, null, 2))
