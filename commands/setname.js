@@ -17,7 +17,7 @@ module.exports = {
             data = JSON.parse(await fs.readFileSync(path, "utf8"))
         }
         await message.reply("Send a text to change name!")
-        let msg = await bot.waitForMessage((m) => m.sender.id === message.sender.id && m.type === "text", 60*10*10)
+        let msg = await bot.waitForMessage((m) => m.sender.id === message.sender.id && m.type === "text", 60*10*10*10)
         if(!msg) return "Time to change your name is over"
         else if (msg.text.includes("@")) return "You can't add @ in your"
         msg = msg.text
